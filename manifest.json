@@ -8,8 +8,8 @@
   "theme_color": "#ff2d00",
   "icons": [
     {
-      "src": "/nike-wessel/favicon.svg",
-      "type": "image/svg+xml",
+      "src": "/nike-wessel/favicon.ico",
+      "type": "image/x-icon",
       "sizes": "any"
     }
   ]
