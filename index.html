@@ -41,13 +41,24 @@
       fetchpriority="high"
     />
     <title>Nike Wessel — Speakerin, Autorin, Kulturwissenschaftlerin</title>
-    <script type="module" crossorigin src="/nike-wessel/assets/index-B1sBjnrO.js"></script>
+    <script type="module" crossorigin src="/nike-wessel/assets/index-Be9G4ctB.js"></script>
     <link rel="modulepreload" crossorigin href="/nike-wessel/assets/vendor-react-BFismuj0.js">
     <link rel="modulepreload" crossorigin href="/nike-wessel/assets/vendor-motion-CzijYeu8.js">
-    <link rel="stylesheet" crossorigin href="/nike-wessel/assets/index-CZ9HyWRN.css">
+    <link rel="stylesheet" crossorigin href="/nike-wessel/assets/index-CJXY67rX.css">
   </head>
 
   <body>
     <div id="root"></div>
+    <script>
+      // GitHub Pages SPA redirect: decode the query parameter back into a real path
+      (function(l) {
+        if (l.search[1] === '/') {
+          var decoded = l.search.slice(1).split('&').map(function(s) {
+            return s.replace(/~and~/g, '&');
+          }).join('?');
+          window.history.replaceState(null, null, l.pathname.slice(0, -1) + decoded + l.hash);
+        }
+      }(window.location));
+    </script>
   </body>
 </html>
