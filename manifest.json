@@ -2,13 +2,13 @@
   "name": "Nike Wessel — Speakerin, Autorin, Kulturwissenschaftlerin",
   "short_name": "Nike Wessel",
   "description": "Nike Wessel — Kulturwissenschaftlerin, Autorin & Speakerin",
-  "start_url": "/",
+  "start_url": "/nike-wessel/",
   "display": "standalone",
   "background_color": "#f7f3ee",
   "theme_color": "#ff2d00",
   "icons": [
     {
-      "src": "/favicon.svg",
+      "src": "/nike-wessel/favicon.svg",
       "type": "image/svg+xml",
       "sizes": "any"
     }
