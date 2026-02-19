@@ -139,24 +139,7 @@ export default function Datenschutz() {
           </section>
 
           <section>
-            <h2 className="font-display text-xl text-black">4. Kontaktformular</h2>
-            <p className="mt-3">
-              Die Internetseite der Studio36 GmbH enthält aufgrund von gesetzlichen Vorschriften
-              Angaben, die eine schnelle elektronische Kontaktaufnahme zu unserem Unternehmen sowie
-              eine unmittelbare Kommunikation mit uns ermöglichen, was ebenfalls eine allgemeine
-              Adresse der sogenannten elektronischen Post (E-Mail-Adresse) umfasst. Sofern eine
-              betroffene Person per E-Mail oder über ein Kontaktformular den Kontakt mit dem für die
-              Verarbeitung Verantwortlichen aufnimmt, werden die von der betroffenen Person
-              übermittelten personenbezogenen Daten automatisch gespeichert. Solche auf freiwilliger
-              Basis von einer betroffenen Person an den für die Verarbeitung Verantwortlichen
-              übermittelten personenbezogenen Daten werden für Zwecke der Bearbeitung oder der
-              Kontaktaufnahme zur betroffenen Person gespeichert. Es erfolgt keine Weitergabe dieser
-              personenbezogenen Daten an Dritte.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="font-display text-xl text-black">5. YouTube</h2>
+            <h2 className="font-display text-xl text-black">4. YouTube</h2>
             <p className="mt-3">
               Der für die Verarbeitung Verantwortliche hat auf dieser Internetseite Komponenten von
               YouTube integriert. YouTube ist ein Internet-Videoportal, das Video-Publishern das
@@ -209,7 +192,7 @@ export default function Datenschutz() {
 
           <section>
             <h2 className="font-display text-xl text-black">
-              6. Rechtsgrundlagen Datenschutzgrundverordnung
+              5. Rechtsgrundlagen Datenschutzgrundverordnung
             </h2>
             <p className="mt-3">
               Entsprechend den Vorgaben der Datenschutzgrundverordnung (DSGVO) informieren wir Sie,
