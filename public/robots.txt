@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://nike-wessel.studio36.berlin/sitemap.xml
