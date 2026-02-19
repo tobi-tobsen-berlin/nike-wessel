@@ -27,6 +27,15 @@ export default function App() {
     return () => window.removeEventListener('popstate', onPop)
   }, [])
 
+  useEffect(() => {
+    const hash = window.location.hash
+    if (!hash) return
+    requestAnimationFrame(() => {
+      const el = document.querySelector(hash)
+      if (el) el.scrollIntoView({ behavior: 'smooth' })
+    })
+  }, [])
+
   if (page === 'impressum') return <Impressum />
   if (page === 'datenschutz') return <Datenschutz />
 
