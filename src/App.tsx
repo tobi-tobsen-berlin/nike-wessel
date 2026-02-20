@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import About from './components/About'
@@ -18,6 +18,23 @@ function getPage() {
   return path || 'home'
 }
 
+function smoothScrollTo(el: Element) {
+  const target = el.getBoundingClientRect().top + window.scrollY
+  const start = window.scrollY
+  const distance = Math.abs(target - start)
+  if (distance === 0) return
+  const duration = Math.min(850 + distance * 0.3, 1600)
+  let t0: number | null = null
+  const ease = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2)
+  const step = (now: number) => {
+    if (!t0) t0 = now
+    const progress = Math.min((now - t0) / duration, 1)
+    window.scrollTo(0, start + (target - start) * ease(progress))
+    if (progress < 1) requestAnimationFrame(step)
+  }
+  requestAnimationFrame(step)
+}
+
 export default function App() {
   const [page, setPage] = useState(getPage)
 
@@ -27,12 +44,28 @@ export default function App() {
     return () => window.removeEventListener('popstate', onPop)
   }, [])
 
+  const handleHashClick = useCallback((e: MouseEvent) => {
+    const anchor = (e.target as Element).closest('a[href^="#"]')
+    if (!anchor) return
+    const hash = anchor.getAttribute('href')!
+    const el = document.querySelector(hash)
+    if (!el) return
+    e.preventDefault()
+    history.pushState(null, '', hash)
+    smoothScrollTo(el)
+  }, [])
+
+  useEffect(() => {
+    document.addEventListener('click', handleHashClick)
+    return () => document.removeEventListener('click', handleHashClick)
+  }, [handleHashClick])
+
   useEffect(() => {
     const hash = window.location.hash
     if (!hash) return
     requestAnimationFrame(() => {
       const el = document.querySelector(hash)
-      if (el) el.scrollIntoView({ behavior: 'smooth' })
+      if (el) smoothScrollTo(el)
     })
   }, [])
 
