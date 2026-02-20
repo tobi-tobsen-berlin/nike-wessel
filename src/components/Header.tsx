@@ -22,9 +22,21 @@ export default function Header({ isSubpage = false }: { isSubpage?: boolean }) {
   }, [])
 
   useEffect(() => {
-    document.body.style.overflow = menuOpen ? 'hidden' : ''
+    const html = document.documentElement
+    const body = document.body
+    if (menuOpen) {
+      html.style.overflow = 'hidden'
+      body.style.overflow = 'hidden'
+      body.style.overscrollBehavior = 'none'
+    } else {
+      html.style.overflow = ''
+      body.style.overflow = ''
+      body.style.overscrollBehavior = ''
+    }
     return () => {
-      document.body.style.overflow = ''
+      html.style.overflow = ''
+      body.style.overflow = ''
+      body.style.overscrollBehavior = ''
     }
   }, [menuOpen])
 

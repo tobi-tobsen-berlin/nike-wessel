@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useRef } from 'react'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import About from './components/About'
@@ -18,8 +18,16 @@ function getPage() {
   return path || 'home'
 }
 
+const HEADER_OFFSET = 60
+
+const prefersReducedMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
 function smoothScrollTo(el: Element) {
-  const target = el.getBoundingClientRect().top + window.scrollY
+  const target = el.getBoundingClientRect().top + window.scrollY - HEADER_OFFSET
+  if (prefersReducedMotion()) {
+    window.scrollTo(0, target)
+    return
+  }
   const start = window.scrollY
   const distance = Math.abs(target - start)
   if (distance === 0) return
@@ -37,14 +45,22 @@ function smoothScrollTo(el: Element) {
 
 export default function App() {
   const [page, setPage] = useState(getPage)
+  const containerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    const onPop = () => setPage(getPage())
+    const onPop = () => {
+      setPage(getPage())
+      const hash = window.location.hash
+      if (hash) {
+        const el = document.querySelector(hash)
+        if (el) smoothScrollTo(el)
+      }
+    }
     window.addEventListener('popstate', onPop)
     return () => window.removeEventListener('popstate', onPop)
   }, [])
 
-  const handleHashClick = useCallback((e: MouseEvent) => {
+  const handleHashClick = useCallback((e: React.MouseEvent) => {
     const anchor = (e.target as Element).closest('a[href^="#"]')
     if (!anchor) return
     const hash = anchor.getAttribute('href')!
@@ -54,11 +70,6 @@ export default function App() {
     history.pushState(null, '', hash)
     smoothScrollTo(el)
   }, [])
-
-  useEffect(() => {
-    document.addEventListener('click', handleHashClick)
-    return () => document.removeEventListener('click', handleHashClick)
-  }, [handleHashClick])
 
   useEffect(() => {
     const hash = window.location.hash
@@ -73,7 +84,7 @@ export default function App() {
   if (page === 'datenschutz') return <Datenschutz />
 
   return (
-    <div className="min-h-screen bg-white">
+    <div ref={containerRef} className="min-h-screen bg-white" onClick={handleHashClick}>
       <PageLoader />
       <Header />
       <main>
