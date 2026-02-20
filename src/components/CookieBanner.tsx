@@ -18,14 +18,23 @@ export default function CookieBanner() {
             <p className="max-w-2xl text-sm leading-relaxed text-white/80">
               Diese Website nutzt YouTube, um Videos einzubetten. Dabei können Cookies gesetzt
               werden.{' '}
-              <a
-                href="https://policies.google.com/privacy"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline underline-offset-2 transition-colors hover:text-pink"
-              >
-                YouTube-Datenschutz
-              </a>
+              <span className="block">
+                <a
+                  href={`${import.meta.env.BASE_URL}datenschutz`}
+                  className="underline underline-offset-2 transition-colors hover:text-pink"
+                >
+                  Datenschutzerklärung
+                </a>
+                {' · '}
+                <a
+                  href="https://policies.google.com/privacy"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline underline-offset-2 transition-colors hover:text-pink"
+                >
+                  YouTube-Datenschutz
+                </a>
+              </span>
             </p>
 
             <div className="flex shrink-0 gap-3">
