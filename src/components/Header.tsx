@@ -64,7 +64,7 @@ export default function Header({ isSubpage = false }: { isSubpage?: boolean }) {
               <a
                 key={link.href}
                 href={isSubpage ? `${base}${link.href}` : link.href}
-                className="font-body text-[13px] font-semibold uppercase tracking-[0.12em] text-black transition-colors hover:text-pink"
+                className="hover:underline font-body text-[16px] font-semibold uppercase tracking-[0.12em] text-black transition-colors hover:text-pink"
               >
                 {link.label}
               </a>

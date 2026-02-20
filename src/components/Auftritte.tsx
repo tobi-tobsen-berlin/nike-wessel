@@ -101,7 +101,7 @@ export default function Auftritte() {
                       href={link.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group inline-flex items-center gap-1.5 text-lg font-bold text-black transition-colors hover:text-pink"
+                      className="underline group inline-flex items-center gap-1.5 text-lg font-bold text-black transition-colors hover:text-pink"
                     >
                       <span className="transition-transform duration-300 group-hover:translate-x-1">
                         {link.label}

@@ -71,6 +71,7 @@ body {
 a::selection,
 button::selection {
   background-color: transparent;
+  color: inherit;
 }
 
 /* Pill button utility */

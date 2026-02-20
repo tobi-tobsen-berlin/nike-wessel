@@ -84,7 +84,7 @@ export default function Hero() {
             animate="visible"
             variants={fromLeft}
           >
-            <p className="hidden md:block text-base font-semibold leading-[1.7] text-black/50 lg:text-lg">
+            <p className="hidden [@media(min-height:600px)]:block text-base font-semibold leading-[1.7] text-black/50 lg:text-lg">
               Vordenkerin für sexuelle Selbstbestimmung, Gendergerechtigkeit und nachhaltige
               Gesellschaftspolitik aus Berlin.
             </p>
