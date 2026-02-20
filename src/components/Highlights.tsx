@@ -93,7 +93,7 @@ function TedTalkTile() {
         ) : null}
       </div>
 
-      <h3 className="mt-4 font-display text-lg text-black lg:text-xl">TEDx Talk</h3>
+      <h3 className="mt-4 font-display text-2xl text-black">TEDx Talk</h3>
       <p className="mt-1 text-[12px] font-semibold uppercase tracking-[0.1em] text-black/50">
         Vortrag · TEDx
       </p>
@@ -134,9 +134,8 @@ export default function Highlights() {
               transition={{ duration: 0.6, delay: 0.15 + i * 0.1 }}
             >
               <div
-                className={`relative overflow-hidden rounded-[1rem] bg-black ${
-                  h.bg ? 'flex items-center justify-center' : ''
-                } ${i === 1 ? 'lg:flex-1' : ''}`}
+                className={`relative overflow-hidden rounded-[1rem] bg-black ${h.bg ? 'flex items-center justify-center' : ''
+                  } ${i === 1 ? 'lg:flex-1' : ''}`}
               >
                 <img
                   src={h.image}
@@ -144,13 +143,11 @@ export default function Highlights() {
                   loading="lazy"
                   width={600}
                   height={i === 0 ? 338 : 600}
-                  className={`w-full transition-transform duration-700 group-hover:scale-105 ${
-                    i === 0 ? 'aspect-video' : i === 1 ? 'aspect-square lg:aspect-auto lg:absolute lg:inset-0 lg:h-full' : 'aspect-square'
-                  } ${
-                    h.objectFit === 'contain'
+                  className={`w-full transition-transform duration-700 group-hover:scale-105 ${i === 0 ? 'aspect-video' : i === 1 ? 'aspect-square lg:aspect-auto lg:absolute lg:inset-0 lg:h-full' : 'aspect-square'
+                    } ${h.objectFit === 'contain'
                       ? `object-contain p-6${h.image.endsWith('.svg') ? ' invert' : ''}`
                       : 'object-cover'
-                  }`}
+                    }`}
                   style={h.objectPosition ? { objectPosition: h.objectPosition } : undefined}
                 />
                 {/* Black overlay on hover */}
@@ -161,7 +158,7 @@ export default function Highlights() {
                 </div>
               </div>
 
-              <h3 className="mt-4 font-display text-lg text-black transition-colors group-hover:text-pink lg:text-xl">
+              <h3 className="mt-4 font-display text-2xl text-black transition-colors group-hover:text-pink">
                 {h.title}
               </h3>
               <p className="mt-1 text-[12px] font-semibold uppercase tracking-[0.1em] text-black/50">
