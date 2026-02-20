@@ -20,13 +20,15 @@ export default function Datenschutz() {
 
         <div className="legal-content mt-12 space-y-8 text-[15px] leading-[1.8] text-black/80">
           <p>
-            Der Verantwortliche im Sinne der Datenschutz-Grundverordnung und anderer nationaler
-            Datenschutzgesetze der Mitgliedsstaaten sowie sonstiger datenschutzrechtlicher
-            Bestimmungen ist die:
+            Der Verantwortliche im Sinne der Datenschutz-Grundverordnung (DSGVO) und anderer
+            nationaler Datenschutzgesetze der Mitgliedstaaten sowie sonstiger datenschutzrechtlicher
+            Bestimmungen ist:
           </p>
 
           <div>
-            <p>Studio36 GmbH</p>
+            <p>
+              <strong>Studio36 GmbH</strong>
+            </p>
             <p>Oranienstraße 183</p>
             <p>D-10999 Berlin</p>
             <p className="mt-2">
@@ -55,157 +57,130 @@ export default function Datenschutz() {
           </div>
 
           <section>
-            <h2 className="font-display text-xl text-black">1. Grundlegendes</h2>
+            <h2 className="font-display text-xl text-black">1. Allgemeine Hinweise</h2>
             <p className="mt-3">
-              Diese Datenschutzerklärung soll die Nutzer dieser Website über die Art, den Umfang und
-              den Zweck der Erhebung und Verwendung personenbezogener Daten durch Studio36 GmbH
-              informieren.
+              Der Schutz Ihrer personenbezogenen Daten ist uns ein wichtiges Anliegen.
+              Personenbezogene Daten werden auf dieser Website nur im notwendigen Umfang und
+              entsprechend den gesetzlichen Vorschriften verarbeitet.
             </p>
             <p className="mt-3">
-              Studio36 GmbH nimmt Ihren Datenschutz sehr ernst und behandelt Ihre personenbezogenen
-              Daten vertraulich und entsprechend der gesetzlichen Vorschriften. Da durch neue
-              Technologien und die ständige Weiterentwicklung dieser Webseite Änderungen an dieser
-              Datenschutzerklärung vorgenommen werden können, empfehlen wir Ihnen sich die
-              Datenschutzerklärung in regelmäßigen Abständen wieder durchzulesen.
-            </p>
-            <p className="mt-3">
-              Definitionen der verwendeten Begriffe (z.B. &quot;personenbezogene Daten&quot; oder
-              &quot;Verarbeitung&quot;) finden Sie in Art. 4 DSGVO.
+              Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden
+              können. Die rechtlichen Grundlagen des Datenschutzes finden sich insbesondere in der
+              Datenschutz-Grundverordnung (DSGVO).
             </p>
           </section>
 
           <section>
-            <h2 className="font-display text-xl text-black">2. Zugriffsdaten</h2>
+            <h2 className="font-display text-xl text-black">2. Zugriffsdaten (Server-Logfiles)</h2>
             <p className="mt-3">
-              Wir, Studio36 GmbH, erheben aufgrund unseres berechtigten Interesses (s. Art. 6 Abs. 1
-              lit. f. DSGVO) Daten über Zugriffe auf die Website und speichern diese als
-              &quot;Server-Logfiles&quot; auf dem Server der Website ab. Folgende Daten werden so
-              protokolliert:
+              Beim Aufruf dieser Website werden durch den Hosting-Anbieter automatisch Informationen
+              erfasst und in sogenannten Server-Logfiles gespeichert. Dies erfolgt auf Grundlage von
+              Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einem sicheren und stabilen
+              Betrieb der Website).
             </p>
+
             <ul className="mt-3 list-disc space-y-1 pl-6">
               <li>Besuchte Website</li>
-              <li>Uhrzeit zum Zeitpunkt des Zugriffes</li>
-              <li>Menge der gesendeten Daten in Byte</li>
-              <li>Quelle/Verweis, von welchem Sie auf die Seite gelangten</li>
+              <li>Datum und Uhrzeit des Zugriffs</li>
+              <li>Menge der gesendeten Daten</li>
+              <li>Referrer-URL</li>
               <li>Verwendeter Browser</li>
               <li>Verwendetes Betriebssystem</li>
-              <li>Verwendete IP-Adresse</li>
+              <li>IP-Adresse</li>
             </ul>
+
             <p className="mt-3">
-              Die Server-Logfiles werden für maximal 9 Wochen gespeichert und anschließend gelöscht.
-              Nach 7 Tagen werden die IP-Adressen der Aufrufer in den Log-Dateien anonymisiert.
+              Die IP-Adressen werden nach spätestens 7 Tagen anonymisiert. Die vollständigen
+              Logfiles werden spätestens nach 9 Wochen gelöscht.
             </p>
+
             <p className="mt-3">
-              Die Speicherung in Logfiles erfolgt, um die Funktionsfähigkeit der Website
-              sicherzustellen. Zudem dienen uns die Daten zur Optimierung der Website und zur
-              Sicherstellung der Sicherheit unserer informationstechnischen Systeme. Eine Auswertung
-              der Daten zu Marketingzwecken findet in diesem Zusammenhang nicht statt.
-            </p>
-            <p className="mt-3">
-              Die Erfassung der Daten zur Bereitstellung der Website und die Speicherung der Daten
-              in Logfiles ist für den Betrieb der Internetseite zwingend erforderlich. Es besteht
-              folglich seitens des Nutzers keine Widerspruchsmöglichkeit.
+              Die Verarbeitung erfolgt ausschließlich zur Gewährleistung der Funktionsfähigkeit,
+              Sicherheit und Optimierung der Website. Eine Zusammenführung mit anderen Datenquellen
+              findet nicht statt.
             </p>
           </section>
 
           <section>
-            <h2 className="font-display text-xl text-black">3. Cookies &amp; lokale Speicherung</h2>
+            <h2 className="font-display text-xl text-black">3. Cookies und lokale Speicherung</h2>
+            <p className="mt-3">Diese Website setzt selbst keine Cookies.</p>
             <p className="mt-3">
-              Diese Website setzt selbst keine Cookies. Zur Speicherung Ihrer Einwilligung bezüglich
-              eingebetteter YouTube-Videos verwenden wir den lokalen Speicher Ihres Browsers
-              (localStorage). Darin wird ausschließlich Ihre Entscheidung gespeichert, ob
-              YouTube-Inhalte geladen werden dürfen oder nicht. Diese Daten verlassen Ihren Browser
-              nicht und werden nicht an uns oder Dritte übermittelt.
+              Zur Speicherung Ihrer Entscheidung über die Aktivierung von YouTube-Videos wird der
+              lokale Speicher Ihres Browsers (localStorage) verwendet. Dabei wird ausschließlich
+              gespeichert, ob Sie der Anzeige von YouTube-Inhalten zugestimmt haben. Diese
+              Information verbleibt in Ihrem Browser und wird nicht an uns übermittelt.
             </p>
+          </section>
+
+          <section>
+            <h2 className="font-display text-xl text-black">4. YouTube</h2>
             <p className="mt-3">
-              Wenn Sie der Einbettung von YouTube-Videos zustimmen, können durch YouTube (Google)
-              Cookies auf Ihrem Endgerät gesetzt werden. Wir verwenden die datenschutzfreundliche
-              Domain youtube-nocookie.com, um die Datenübertragung zu minimieren. Weitere
-              Informationen finden Sie in der{' '}
+              Auf dieser Website sind Videos der Plattform YouTube eingebunden. Anbieter ist Google
+              Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland.
+            </p>
+
+            <p className="mt-3">
+              Die Einbindung erfolgt im erweiterten Datenschutzmodus („youtube-nocookie.com“). Eine
+              Verbindung zu YouTube wird erst hergestellt, wenn Sie der Anzeige des Videos
+              ausdrücklich zustimmen. Rechtsgrundlage ist Ihre Einwilligung gemäß Art. 6 Abs. 1 lit.
+              a DSGVO.
+            </p>
+
+            <p className="mt-3">
+              Nach Aktivierung des Videos können personenbezogene Daten (z.B. IP-Adresse) an Server
+              von Google übermittelt werden. Dabei kann auch eine Übertragung in die USA erfolgen.
+              Google stützt sich hierbei auf die EU-Standardvertragsklauseln gemäß Art. 46 DSGVO.
+            </p>
+
+            <p className="mt-3">
+              Wenn Sie in Ihrem YouTube-Account eingeloggt sind, kann YouTube Ihr Surfverhalten
+              Ihrem persönlichen Profil zuordnen. Weitere Informationen zur Datenverarbeitung finden
+              Sie unter:{' '}
               <a
                 href="https://policies.google.com/privacy"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-pink hover:underline"
               >
-                Datenschutzerklärung von Google
+                https://policies.google.com/privacy
               </a>
-              .
             </p>
-            <p className="mt-3">Sie können Ihre YouTube-Einwilligung jederzeit widerrufen:</p>
+
+            <p className="mt-3">
+              Ihre Einwilligung können Sie jederzeit mit Wirkung für die Zukunft widerrufen.
+            </p>
+
             <button onClick={resetConsent} className="btn-pill mt-4">
-              {consentReset ? 'Einwilligung zurückgesetzt ✓' : 'YouTube-Einwilligung widerrufen'}
+              {consentReset ? 'Einwilligung zurückgesetzt ✓' : 'Einwilligung widerrufen'}
             </button>
           </section>
 
           <section>
-            <h2 className="font-display text-xl text-black">4. YouTube</h2>
+            <h2 className="font-display text-xl text-black">5. Betroffenenrechte</h2>
             <p className="mt-3">
-              Der für die Verarbeitung Verantwortliche hat auf dieser Internetseite Komponenten von
-              YouTube integriert. YouTube ist ein Internet-Videoportal, das Video-Publishern das
-              kostenlose Einstellen von Videoclips und anderen Nutzern die ebenfalls kostenfreie
-              Betrachtung, Bewertung und Kommentierung dieser ermöglicht.
+              Sie haben im Rahmen der geltenden gesetzlichen Bestimmungen jederzeit das Recht auf:
             </p>
-            <p className="mt-3">
-              Betreibergesellschaft von YouTube ist die YouTube, LLC, 901 Cherry Ave., San Bruno, CA
-              94066, USA. Die YouTube, LLC ist eine Tochtergesellschaft der Google Inc., 1600
-              Amphitheatre Pkwy, Mountain View, CA 94043-1351, USA.
-            </p>
-            <p className="mt-3">
-              Durch jeden Aufruf einer der Einzelseiten dieser Internetseite, auf welcher eine
-              YouTube-Komponente (YouTube-Video) integriert wurde, wird der Internetbrowser auf dem
-              informationstechnologischen System der betroffenen Person automatisch durch die
-              jeweilige YouTube-Komponente veranlasst, eine Darstellung der entsprechenden
-              YouTube-Komponente von YouTube herunterzuladen.
-            </p>
-            <p className="mt-3">
-              Sofern die betroffene Person gleichzeitig bei YouTube eingeloggt ist, erkennt YouTube
-              mit dem Aufruf einer Unterseite, die ein YouTube-Video enthält, welche konkrete
-              Unterseite unserer Internetseite die betroffene Person besucht. Diese Informationen
-              werden durch YouTube und Google gesammelt und dem jeweiligen YouTube-Account der
-              betroffenen Person zugeordnet.
-            </p>
-            <p className="mt-3">
-              YouTube und Google erhalten über die YouTube-Komponente immer dann eine Information
-              darüber, dass die betroffene Person unsere Internetseite besucht hat, wenn die
-              betroffene Person zum Zeitpunkt des Aufrufs unserer Internetseite gleichzeitig bei
-              YouTube eingeloggt ist; dies findet unabhängig davon statt, ob die betroffene Person
-              ein YouTube-Video anklickt oder nicht. Ist eine derartige Übermittlung dieser
-              Informationen an YouTube und Google von der betroffenen Person nicht gewollt, kann
-              diese die Übermittlung dadurch verhindern, dass sie sich vor einem Aufruf unserer
-              Internetseite aus ihrem YouTube-Account ausloggt.
-            </p>
-            <p className="mt-3">
-              Die von YouTube veröffentlichten Datenschutzbestimmungen, die unter{' '}
-              <a
-                href="https://www.google.de/intl/de/policies/privacy/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-pink hover:underline"
-              >
-                https://www.google.de/intl/de/policies/privacy/
-              </a>{' '}
-              abrufbar sind, geben Aufschluss über die Erhebung, Verarbeitung und Nutzung
-              personenbezogener Daten durch YouTube und Google.
-            </p>
-          </section>
 
-          <section>
-            <h2 className="font-display text-xl text-black">
-              5. Rechtsgrundlagen Datenschutzgrundverordnung
-            </h2>
+            <ul className="mt-3 list-disc space-y-1 pl-6">
+              <li>Auskunft über Ihre gespeicherten Daten (Art. 15 DSGVO)</li>
+              <li>Berichtigung unrichtiger Daten (Art. 16 DSGVO)</li>
+              <li>Löschung Ihrer Daten (Art. 17 DSGVO)</li>
+              <li>Einschränkung der Verarbeitung (Art. 18 DSGVO)</li>
+              <li>Datenübertragbarkeit (Art. 20 DSGVO)</li>
+              <li>Widerspruch gegen die Verarbeitung (Art. 21 DSGVO)</li>
+            </ul>
+
             <p className="mt-3">
-              Entsprechend den Vorgaben der Datenschutzgrundverordnung (DSGVO) informieren wir Sie,
-              dass die Einwilligungen in den Versand der E-Mailadressen auf Grundlage der Art. 6
-              Abs. 1 lit. a, 7 DSGVO sowie § 7 Abs. 2 Nr. 3, bzw. Abs. 3 UWG erfolgt.
+              Erteilte Einwilligungen können jederzeit mit Wirkung für die Zukunft widerrufen
+              werden.
             </p>
+
+            <button onClick={resetConsent} className="btn-pill mt-4">
+              {consentReset ? 'Einwilligung zurückgesetzt ✓' : 'Einwilligung widerrufen'}
+            </button>
+
             <p className="mt-3">
-              <strong>
-                Wir weisen Sie ferner darauf hin, dass Sie der künftigen Verarbeitung Ihrer
-                personenbezogenen Daten entsprechend den gesetzlichen Vorgaben gem. Art. 21 DSGVO
-                jederzeit widersprechen können. Der Widerspruch kann insbesondere gegen die
-                Verarbeitung für Zwecke der Direktwerbung erfolgen.
-              </strong>
+              Zudem haben Sie das Recht, sich bei einer Datenschutzaufsichtsbehörde zu beschweren.
             </p>
           </section>
         </div>
