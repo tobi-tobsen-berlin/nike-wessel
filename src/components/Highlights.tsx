@@ -127,7 +127,7 @@ export default function Highlights() {
               href={h.href}
               target="_blank"
               rel="noopener noreferrer"
-              className={`group relative overflow-hidden ${i === 0 ? 'sm:col-span-2' : ''}`}
+              className={`group relative overflow-hidden ${i === 0 ? 'sm:col-span-2' : ''} ${i === 1 ? 'lg:flex lg:flex-col' : ''}`}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -136,7 +136,7 @@ export default function Highlights() {
               <div
                 className={`relative overflow-hidden rounded-[1rem] bg-black ${
                   h.bg ? 'flex items-center justify-center' : ''
-                }`}
+                } ${i === 1 ? 'lg:flex-1' : ''}`}
               >
                 <img
                   src={h.image}
@@ -145,7 +145,7 @@ export default function Highlights() {
                   width={600}
                   height={i === 0 ? 338 : 600}
                   className={`w-full transition-transform duration-700 group-hover:scale-105 ${
-                    i === 0 ? 'aspect-video' : 'aspect-square'
+                    i === 0 ? 'aspect-video' : i === 1 ? 'aspect-square lg:aspect-auto lg:absolute lg:inset-0 lg:h-full' : 'aspect-square'
                   } ${
                     h.objectFit === 'contain'
                       ? `object-contain p-6${h.image.endsWith('.svg') ? ' invert' : ''}`
