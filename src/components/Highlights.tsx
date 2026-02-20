@@ -35,7 +35,7 @@ const highlights: Highlight[] = [
     objectPosition: '60% center',
   },
   {
-    title: 'Sex in ... - Guide to Love',
+    title: 'Guide to Love – Sex in…',
     subtitle: 'Buch · 2026 · Vom Meer bis zu den Alpen',
     href: 'https://sexinberlin-2.myshopify.com/products/guide-to-love-sex-in?variant=56195496575324',
     image: `${base}images/sx-in-berlin-book.webp`,
