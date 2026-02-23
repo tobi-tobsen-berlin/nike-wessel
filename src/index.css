@@ -127,18 +127,20 @@ button::selection {
 /* Ken Burns cinemagraph */
 @keyframes kenBurns {
   0% {
-    transform: scale(1) translate(0, 0);
+    transform: scale(1) translate3d(0, 0, 0);
   }
 
   100% {
-    transform: scale(1.08) translate(0.5%, 1%);
+    transform: scale(1.08) translate3d(4px, 12px, 0);
   }
 }
 
 .ken-burns {
-  animation: kenBurns 20s ease-in-out infinite alternate;
+  animation: kenBurns 14s linear infinite alternate;
+  animation-delay: 1.2s;
   transform-origin: top center;
-  will-change: transform;
+  backface-visibility: hidden;
+  contain: layout style paint;
 }
 
 /* Reduced motion */

@@ -42,16 +42,17 @@ export default function Hero() {
               height={1206}
               fetchPriority="high"
               decoding="async"
-              className="w-full object-cover brightness-[0.8] ken-burns"
+              className="w-full object-cover ken-burns"
               aria-hidden="true"
             />
+            <div className="absolute inset-0 bg-black/0 pointer-events-none" aria-hidden />
           </motion.div>
-          <div className="absolute bottom-0 left-0 right-0 h-[60%] bg-gradient-to-t from-black via-black/50 to-transparent pointer-events-none" />
+          <div className="absolute bottom-0 left-0 right-0 h-[60%] bg-gradient-to-t from-black via-black/70 to-transparent pointer-events-none" />
         </>
       )}
 
       {/* ─── Content ─── */}
-      <div className="relative mx-auto flex min-h-[100svh] w-full max-w-[1400px] items-end px-6 pb-[100px] landscape:min-h-0 landscape:items-center landscape:gap-8 landscape:pb-0 landscape:pt-20 md:min-h-0 md:items-center md:gap-10 md:pb-0 md:pt-20 lg:gap-16 lg:px-10 lg:pt-20">
+      <div className="relative mx-auto flex min-h-[100svh] w-full max-w-[1400px] items-end px-6 pb-[80px] landscape:min-h-0 landscape:items-center landscape:gap-8 landscape:pb-0 landscape:pt-20 md:min-h-0 md:items-center md:gap-10 md:pb-0 md:pt-20 lg:gap-16 lg:px-10 lg:pt-20">
         <div className="landscape:flex landscape:w-[50%] landscape:flex-col landscape:justify-center md:flex md:w-[50%] md:flex-col md:justify-center lg:w-[55%]">
           <h1 className="font-display leading-[1.1] landscape:tracking-tight md:tracking-tight">
             <motion.span
