@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
+import { useMediaQuery } from '../hooks/useMediaQuery'
 
 const fromLeft = {
   hidden: { opacity: 0, x: -40 },
@@ -21,27 +22,33 @@ const fromBottom = {
 }
 
 export default function Hero() {
+  const isMobile = useMediaQuery('(max-width: 767px) and (orientation: portrait)')
+
   return (
     <section className="relative overflow-hidden bg-white">
       {/* ─── Mobile background (portrait < md only) ─── */}
-      <motion.div
-        className="absolute inset-0 flex items-end justify-center landscape:hidden md:hidden"
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1.2, ease: [0, 0, 0.2, 1] }}
-      >
-        <img
-          src={`${import.meta.env.BASE_URL}images/nike-720w.webp`}
-          alt=""
-          width={720}
-          height={1206}
-          fetchPriority="high"
-          decoding="async"
-          className="w-full object-cover brightness-[0.8] ken-burns"
-          aria-hidden="true"
-        />
-      </motion.div>
-      <div className="absolute bottom-0 left-0 right-0 h-[60%] bg-gradient-to-t from-black via-black/50 to-transparent pointer-events-none landscape:hidden md:hidden" />
+      {isMobile && (
+        <>
+          <motion.div
+            className="absolute inset-0 flex items-end justify-center"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1.2, ease: [0, 0, 0.2, 1] }}
+          >
+            <img
+              src={`${import.meta.env.BASE_URL}images/nike-720w.webp`}
+              alt=""
+              width={720}
+              height={1206}
+              fetchPriority="high"
+              decoding="async"
+              className="w-full object-cover brightness-[0.8] ken-burns"
+              aria-hidden="true"
+            />
+          </motion.div>
+          <div className="absolute bottom-0 left-0 right-0 h-[60%] bg-gradient-to-t from-black via-black/50 to-transparent pointer-events-none" />
+        </>
+      )}
 
       {/* ─── Content ─── */}
       <div className="relative mx-auto flex min-h-[100svh] w-full max-w-[1400px] items-end px-6 pb-[100px] landscape:min-h-0 landscape:items-center landscape:gap-8 landscape:pb-0 landscape:pt-20 md:min-h-0 md:items-center md:gap-10 md:pb-0 md:pt-20 lg:gap-16 lg:px-10 lg:pt-20">
