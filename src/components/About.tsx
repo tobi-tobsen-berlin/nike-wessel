@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { useEffect, useRef } from 'react'
 
 const bioLinks = {
   taz: 'https://taz.de/Nike-Wessel/!a226366/',
@@ -30,7 +31,164 @@ const pVariants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
 }
 
+const magazineLogos = [
+  {
+    src: '/images/magazin/taz-logo.svg',
+    alt: 'taz article',
+    href: 'https://taz.de/Nike-Wessel/!a226366/',
+  },
+  {
+    src: '/images/magazin/tagesspiegel-logo.svg',
+    alt: 'Tagesspiegel article',
+    href: 'https://www.tagesspiegel.de/gesellschaft/autorin-nike-wessel-uber-die-sexpositive-szene-in-berlin-die-gaste-ringen-nackt-und-eingeolt-miteinander-14107283.html',
+  },
+  {
+    src: '/images/magazin/monopol-logo-1.svg',
+    alt: 'Monopol Magazin article',
+    href: 'https://www.monopol-magazin.de/nike-wessel-sex-in-berlin-kuscheln-kuchen-und-kinks',
+  },
+  {
+    src: '/images/magazin/tip-berlin-logo.svg',
+    alt: 'tipBerlin article',
+    href: 'https://www.tip-berlin.de/lifestyle/liebe-lust/nike-wessel-sex-in-berlin/',
+  },
+  {
+    src: '/images/magazin/thecolumbist-logo.svg',
+    alt: 'The Columbist article',
+    href: 'https://thecolumbist.com/sex-in-berlin-a-colorful-talk-with-nike-wessel/',
+  },
+  {
+    src: '/images/magazin/berliner-zeitung-logo.svg',
+    alt: 'Berliner Zeitung post',
+    href: 'https://www.facebook.com/berlinerzeitung/posts/stadtf%C3%BChrer-war-gestern-jetzt-gibt-es-den-berliner-sex-guide-nike-wessel-beantwo/1167702192049865/',
+  },
+  {
+    src: '/images/magazin/Vice_logo-1.svg',
+    alt: 'Vice article',
+    href: 'https://www.vice.com/de/article/sex-in-berlin-podcast-was-ich-waehrend-eines-jahres-in-berlins-sexpositiver-szene-gelernt-habe',
+  },
+  {
+    src: '/images/magazin/Missy-Magazine-logo-white.png.webp',
+    alt: 'Missy Magazine',
+    href: 'https://missy-magazine.de/blog/author/nikewessel/',
+  },
+]
+
+const carouselLogos = [...magazineLogos, ...magazineLogos]
+
 export default function About() {
+  const carouselRef = useRef<HTMLDivElement>(null)
+  const virtualScrollRef = useRef(0)
+  const clickTargetRef = useRef<number | null>(null)
+
+  const scrollCarousel = (direction: 'left' | 'right') => {
+    if (!carouselRef.current) return
+
+    const scrollAmount = carouselRef.current.clientWidth * 0.75
+    const delta = direction === 'right' ? scrollAmount : -scrollAmount
+    const loopPoint = carouselRef.current.scrollWidth / 2
+
+    clickTargetRef.current = virtualScrollRef.current + delta
+    if (clickTargetRef.current >= loopPoint) clickTargetRef.current -= loopPoint
+    if (clickTargetRef.current < 0) clickTargetRef.current += loopPoint
+  }
+
+  useEffect(() => {
+    const container = carouselRef.current
+    if (!container) return
+
+    let animationFrameId = 0
+    let isHovered = false
+    let hasEnteredView = false
+    let fastStartDone = false
+    let boostStartTime = 0
+    virtualScrollRef.current = container.scrollLeft
+    const baseSpeed = 0.6
+    const boostSpeed = 2
+    const boostDurationMs = 1200
+
+    const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3)
+
+    const step = () => {
+      if (hasEnteredView) {
+        let speed = baseSpeed
+
+        if (fastStartDone) {
+          const elapsed = performance.now() - boostStartTime
+          const progress = Math.min(Math.max(elapsed / boostDurationMs, 0), 1)
+          const easedProgress = easeOutCubic(progress)
+          speed = boostSpeed - (boostSpeed - baseSpeed) * easedProgress
+        }
+
+        if (isHovered) speed *= 0.25
+
+        const loopPoint = container.scrollWidth / 2
+        const clickTarget = clickTargetRef.current
+
+        if (clickTarget !== null) {
+          let diff = clickTarget - virtualScrollRef.current
+          if (Math.abs(diff) > loopPoint / 2) {
+            diff -= Math.sign(diff) * loopPoint
+          }
+
+          // Smoothly glide to clicked direction and destination.
+          virtualScrollRef.current += diff * 0.14
+
+          if (Math.abs(diff) < 0.8) {
+            clickTargetRef.current = null
+          }
+        } else {
+          virtualScrollRef.current += speed
+        }
+
+        if (virtualScrollRef.current >= loopPoint) {
+          virtualScrollRef.current -= loopPoint
+        }
+        if (virtualScrollRef.current < 0) {
+          virtualScrollRef.current += loopPoint
+        }
+
+        container.scrollLeft = virtualScrollRef.current
+      }
+
+      animationFrameId = window.requestAnimationFrame(step)
+    }
+
+    const handleMouseEnter = () => {
+      isHovered = true
+    }
+
+    const handleMouseLeave = () => {
+      isHovered = false
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting || hasEnteredView) return
+
+        hasEnteredView = true
+        if (!fastStartDone) {
+          fastStartDone = true
+          boostStartTime = performance.now()
+          virtualScrollRef.current = container.scrollLeft
+        }
+      },
+      { threshold: 0.25 },
+    )
+
+    observer.observe(container)
+    container.addEventListener('mouseenter', handleMouseEnter)
+    container.addEventListener('mouseleave', handleMouseLeave)
+    animationFrameId = window.requestAnimationFrame(step)
+
+    return () => {
+      window.cancelAnimationFrame(animationFrameId)
+      observer.disconnect()
+      container.removeEventListener('mouseenter', handleMouseEnter)
+      container.removeEventListener('mouseleave', handleMouseLeave)
+    }
+  }, [])
+
   return (
     <>
       {/* ─── Bio section — black background ─── */}
@@ -131,28 +289,85 @@ export default function About() {
         </div>
       </section>
 
-      {/* ─── Quote section — clean centered ─── */}
-      <section className="relative bg-black">
-        <div className="mx-auto max-w-[1400px] px-6 py-28 lg:px-10 lg:py-20">
-          <div className="relative">
-            <motion.blockquote
-              className="relative mx-auto max-w-[850px] text-center"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.1 }}
-              transition={{ duration: 0.9, delay: 0.2 }}
+      {/* ─── Magazine logos carousel ─── */}
+      <section className="relative bg-black py-20">
+        <div className="mx-auto mb-8 h-px w-16 bg-pink" />
+        <div className="mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-10">
+          <motion.div
+            className="flex items-center gap-3 md:gap-4"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.7 }}
+          >
+            <button
+              type="button"
+              aria-label="Previous magazines"
+              onClick={() => scrollCarousel('left')}
+              className="hidden cursor-pointer h-24 w-20 shrink-0 items-center justify-center text-5xl leading-none text-white transition hover:text-pink md:flex md:w-24"
             >
-              <div className="mx-auto mb-8 h-px w-16 bg-pink" />
-              <p className="font-display text-[clamp(1.8rem,5vw,3.5rem)] leading-[1.3] text-white italic">
-                „There is a crack in everything and this is where the lights get in.“
-              </p>
-              <footer className="mt-10">
-                <cite className="font-body text-[13px] font-semibold not-italic uppercase tracking-[0.15em] text-white/60">
-                  — Leonard Cohen
-                </cite>
-              </footer>
-            </motion.blockquote>
-          </div>
+              <span aria-hidden="true">‹</span>
+            </button>
+
+            <div className="grid w-full grid-cols-2 gap-3 md:hidden [perspective:1000px]">
+              {magazineLogos.map((logo, index) => (
+                <motion.a
+                  key={logo.src}
+                  href={logo.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex h-28 items-center justify-center rounded-md border border-white/15 bg-white/5 px-4"
+                  style={{ transformStyle: 'preserve-3d' }}
+                  initial={{ opacity: 0, rotateY: -80, y: 18 }}
+                  whileInView={{ opacity: 1, rotateY: 0, y: 0 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ duration: 0.55, delay: index * 0.08, ease: 'easeOut' }}
+                  whileHover={{ y: -4, scale: 1.03 }}
+                >
+                  <img
+                    src={logo.src}
+                    alt={logo.alt}
+                    className={`w-auto object-contain ${logo.src.includes('taz-logo') ? 'max-h-16' : 'max-h-12'
+                      }`}
+                  />
+                </motion.a>
+              ))}
+            </div>
+            <div
+              ref={carouselRef}
+              className="hidden flex-1 gap-8 overflow-x-auto py-2 md:flex [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+            >
+              {carouselLogos.map((logo, index) => (
+                <motion.a
+                  key={`${logo.src}-${index}`}
+                  href={logo.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex h-36 min-w-[280px] shrink-0 items-center justify-center rounded-md border border-white/15 bg-white/5 px-8"
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.45, delay: index * 0.08 }}
+                  whileHover={{ y: -4, scale: 1.03 }}
+                >
+                  <img
+                    src={logo.src}
+                    alt={logo.alt}
+                    className={`w-auto object-contain ${logo.src.includes('taz-logo') ? 'max-h-28' : 'max-h-16'
+                      }`}
+                  />
+                </motion.a>
+              ))}
+            </div>
+
+            <button
+              type="button"
+              aria-label="Next magazines"
+              onClick={() => scrollCarousel('right')}
+              className="hidden cursor-pointer h-24 w-20 shrink-0 items-center justify-center text-5xl leading-none text-white transition hover:text-pink md:flex md:w-24"
+            >
+              <span aria-hidden="true">›</span>
+            </button>
+          </motion.div>
         </div>
       </section>
     </>
