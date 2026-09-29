@@ -71,7 +71,7 @@ export default function Hero() {
               animate="visible"
               variants={fromLeft}
             >
-              Speakerin
+              Speaker
             </motion.span>
             <motion.span
               className="block text-[clamp(18px,5vw,28px)] text-pink/60 landscape:text-[clamp(20px,3.5vw,44px)] md:text-[clamp(20px,3.5vw,44px)]"
