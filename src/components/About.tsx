@@ -72,6 +72,11 @@ const magazineLogos = [
     alt: 'Missy Magazine',
     href: 'https://missy-magazine.de/blog/author/nikewessel/',
   },
+  {
+    src: '/images/magazin/amazingy-logo.png',
+    alt: 'Amazingy Magazine Interview',
+    href: 'https://amazingy.com/magazine/de/alles-ueber-sex-ein-interview-mit-nike-wessels/',
+  },
 ]
 
 const carouselLogos = [...magazineLogos, ...magazineLogos]
@@ -278,6 +283,10 @@ export default function About() {
                   Außerdem hat sie den gemeinnützigen Verein{' '}
                   <BioLink name={'\u201ELove Fair\u201C'} href={bioLinks['Love Fair']} /> gegründet,
                   der sich für Gesundheits- und sexuelle Aufklärung engagiert.
+                </motion.p>
+
+                <motion.p variants={pVariants}>
+                  Als Medientrainerin arbeitet sie unter anderem für das ZDF.
                 </motion.p>
 
                 <motion.p variants={pVariants}>

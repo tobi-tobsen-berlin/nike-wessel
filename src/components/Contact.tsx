@@ -35,7 +35,7 @@ export default function Contact() {
             viewport={viewport}
             transition={{ delay: 0.4 }}
           >
-            Für Anfragen zu Vorträgen, Panels, Workshops und Kooperationen.
+            Für Anfragen zu Vorträgen, Panels, Workshops, Medientraining und Kooperationen.
           </motion.p>
 
           {/* Pill CTA button */}

@@ -31,6 +31,10 @@ const rows: PublicationRow[] = [
         label: 'Missy Magazine',
         href: 'https://missy-magazine.de/blog/author/nikewessel/',
       },
+      {
+        label: 'Amazingy Magazine',
+        href: 'https://amazingy.com/magazine/de/alles-ueber-sex-ein-interview-mit-nike-wessels/',
+      },
     ],
   },
   {
@@ -43,6 +47,19 @@ const rows: PublicationRow[] = [
       {
         label: '\u201EGreen Voices\u201C',
         href: 'https://open.spotify.com/show/19D7NueiEFvfxXphlSqAor',
+      },
+    ],
+  },
+  {
+    category: 'Zu Gast',
+    links: [
+      {
+        label: 'Eine Stunde Liebe (Dlf Nova)',
+        href: 'https://open.spotify.com/episode/17oK7f3CCoBp5IwafHPtfR',
+      },
+      {
+        label: 'The Sirens Collective',
+        href: 'https://www.podcast.de/episode/690959062/69-aufklaerung-ist-kein-verbrechen-mit-nike-wessel',
       },
     ],
   },
